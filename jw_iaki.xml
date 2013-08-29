@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<extension version="1.6" type="plugin" group="k2" method="upgrade">
+<extension version="2.5" type="plugin" group="k2" method="upgrade">
 	<name>IAKI - Import As K2 Image (by JoomlaWorks)</name>
 	<author>JoomlaWorks</author>
 	<creationDate>January 18th, 2013</creationDate>
@@ -23,8 +23,8 @@
 			</fieldset>
 		</fields>
 	</config>
-  <languages>
-    <language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.ini</language>
-    <language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.sys.ini</language>
-  </languages>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.sys.ini</language>
+	</languages>
 </extension>
