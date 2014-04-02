@@ -11,8 +11,13 @@ Please note that this plugin will not dynamically resize your Joomla! article im
 
 
 ## REQUIREMENTS
-- Joomla! 2.5 or newer
+- Joomla! 2.5 or newer (for v2.x that is hosted in this repository)
 - K2 v2.5.x or newer
+
+
+## DOWNLOADS
+Download IAKI v1.0 for Joomla! 1.5: http://joomlaworks.googlecode.com/files/plg_k2_iaki-v1.0_j1.5-2.5.zip
+Download IAKI v2.0 for Joomla! 2.5 or newer: http://joomlaworks.googlecode.com/files/plg_k2_iaki-v2.0_j2.5-3.0.zip
 
 
 ## LEARN MORE
