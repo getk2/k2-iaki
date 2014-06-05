@@ -45,4 +45,4 @@ You can grab the latest release here: http://goo.gl/KnZHqJ (v2.1)
 
 To install this Joomla plugin, download the file in your computer and then head over to the Joomla installer and choose to upload the file you just downloaded.
 
-An older release for Joomla 1.5 can be found here: http://joomlaworks.googlecode.com/files/plg_k2_iaki-v1.0_j1.5-2.5.zip
+An older release for Joomla 1.5 can be found here: https://github.com/joomlaworks/k2-iaki/releases/download/v1.0/plg_k2_iaki-v1.0_j1.5-2.5.zip
