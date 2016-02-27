@@ -17,7 +17,7 @@ A K2 plugin for Joomla that converts the first found image inside your article's
 ### DEMO & SHOWCASE
 This plugin has been extensively used in many Joomla sites where the content was moved from the default Joomla article system into K2. Such an example is: http://www.cinemad.gr
 
-If you browse to any category (e.g. http://www.cinemad.gr/news) and navigate (using the pagination links) to some of the oldest articles, you see that any embedded images are now K2 images for both K2 listing and item pages.
+If you browse to any category (e.g. http://www.cinemad.gr/news) and navigate (using the pagination links) to the oldest articles, you will notice that any embedded images are now K2 images for both K2 listing and item pages.
 
 
 ### REQUIREMENTS
@@ -37,7 +37,7 @@ Some helpful links:
 - K2 - http://getk2.org
 - Joomla - http://www.joomla.org
 
-If you want to provide feedback for this Joomla plugin, you may use the GitHub issue tracker here: https://github.com/joomlaworks/k2-iaki/issues
+If you want to provide feedback for this Joomla plugin, you may use the GitHub issue tracker here: https://github.com/getk2/k2-iaki/issues
 
 
 ## DOWNLOAD
@@ -45,4 +45,4 @@ You can grab the latest release here: http://goo.gl/KnZHqJ (v2.1)
 
 To install this Joomla plugin, download the file in your computer and then head over to the Joomla installer and choose to upload the file you just downloaded.
 
-An older release for Joomla 1.5 can be found here: https://github.com/joomlaworks/k2-iaki/releases/download/v1.0/plg_k2_iaki-v1.0_j1.5-2.5.zip
+An older release for Joomla 1.5 can be found here: https://github.com/getk2/k2-iaki/releases/download/v1.0/plg_k2_iaki-v1.0_j1.5-2.5.zip
