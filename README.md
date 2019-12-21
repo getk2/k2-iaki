@@ -28,8 +28,8 @@ IAKI is developed by JoomlaWorks and released under the GNU/GPL v2 license.
 
 
 ### DOWNLOAD
-You can grab the latest release here: https://goo.gl/KnZHqJ (v2.2 released December 21st, 2019)
+You can grab the latest release here: https://www.joomlaworks.net/downloads/?f=plg_k2_iaki-v2.2_j2.5-3.x.zip (v2.2 released December 21st, 2019)
 
 To install this Joomla plugin, download the file in your computer and then head over to the Joomla installer and choose to upload the file you just downloaded.
 
-An older release for Joomla 1.5 can be found here: https://github.com/joomlaworks/k2-iaki/releases/download/v1.0/plg_k2_iaki-v1.0_j1.5-2.5.zip
+An older release for Joomla 1.5 can be found here: https://www.joomlaworks.net/downloads/?f=plg_k2_iaki-v1.0_j1.5-2.5.zip
