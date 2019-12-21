@@ -13,7 +13,7 @@ So if we wanted to move all images e.g. from "images/stories/blog" to "images/ar
 
 Please note that this plugin will not dynamically resize your Joomla article images as K2 images. The "resize" is done using HTML attributes on the K2 tag that is output. We plan to add resize options in a later version of the plugin.
 
-If you want to provide feedback for this Joomla plugin, you may use the GitHub issue tracker here: https://github.com/joomlaworks/k2-iaki/issues
+If you want to provide feedback for this Joomla plugin, you may use the GitHub issue tracker here: https://github.com/getk2/k2-iaki/issues
 
 
 ### COMPATIBILITY
