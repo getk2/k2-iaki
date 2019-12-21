@@ -1,92 +1,100 @@
 <?php
 /**
- * @version		2.1
- * @package		IAKI - Import As K2 Image (K2 plugin)
- * @author    	JoomlaWorks - http://www.joomlaworks.net
- * @copyright	Copyright (c) 2006 - 2014 JoomlaWorks Ltd. All rights reserved.
- * @license		GNU/GPL license: http://www.gnu.org/copyleft/gpl.html
+ * @version     2.2
+ * @package     IAKI - Import As K2 Image (K2 plugin)
+ * @author      JoomlaWorks - https://www.joomlaworks.net
+ * @copyright   Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license     GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
  */
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
 // Load the K2 Plugin API
-JLoader::register('K2Plugin', JPATH_ADMINISTRATOR.DS.'components'.DS.'com_k2'.DS.'lib'.DS.'k2plugin.php');
+JLoader::register('K2Plugin', JPATH_ADMINISTRATOR.'/components/com_k2/lib/k2plugin.php');
 
 // Initiate class to hold plugin events
 class plgK2Jw_iaki extends K2Plugin
 {
+    public $pluginName = 'jw_iaki';
+    public $pluginNameHumanReadable = 'IAKI (Import As K2 Image)';
 
-	// Some params
-	var $pluginName = 'jw_iaki';
-	var $pluginNameHumanReadable = 'IAKI (Import As K2 Image)';
+    public function __construct(&$subject, $params)
+    {
+        parent::__construct($subject, $params);
+    }
 
-	function plgK2Jw_iaki(&$subject, $params)
-	{
-		parent::__construct($subject, $params);
+    public function onK2PrepareContent(&$item, &$params, $limitstart)
+    {
+        // Get the K2 plugin params (the stuff you see when you edit the plugin in the plugin manager)
+        $plugin = JPluginHelper::getPlugin('k2', $this->pluginName);
+        $pluginParams = new JRegistry($plugin->params);
 
-		// Define the DS constant under Joomla! 3.0
-		if (!defined('DS'))
-		{
-			define('DS', DIRECTORY_SEPARATOR);
-		}
-	}
+        $limitK2ItemId = (int) $pluginParams->get('limitK2ItemId');
+        $sourceImageFolder = $pluginParams->get('sourceImageFolder');
+        $destImageFolder = $pluginParams->get('destImageFolder');
 
-	function onK2PrepareContent(&$item, &$params, $limitstart)
-	{
-		$mainframe = JFactory::getApplication();
+        // Execute up to a certain item ID
+        if ($limitK2ItemId) {
+            if (isset($item->id) && $item->id > $limitK2ItemId) {
+                return;
+            }
+        }
 
-		// Get the K2 plugin params (the stuff you see when you edit the plugin in the plugin manager)
-		$plugin = JPluginHelper::getPlugin('k2', $this->pluginName);
-		$pluginParams = new JRegistry($plugin->params);
+        // Output
+        if (isset($item->id)) {
+            if (isset($item->text) && trim($item->text) != '') {
+                $text = $item->text;
+            } elseif (isset($item->introtext) && trim($item->introtext) != '') {
+                $text = $item->introtext;
+            } else {
+                $text = '';
+            }
 
-		$limitK2ItemId = (int)$pluginParams->get('limitK2ItemId', 9999999);
-		$sourceImageFolder = $pluginParams->get('sourceImageFolder');
-		$destImageFolder = $pluginParams->get('destImageFolder');
+            $getFirstImage = $this->getFirstImage($text);
 
-		// Includes
-		require_once (dirname(__FILE__).DS.$this->pluginName.DS.'includes'.DS.'helper.php');
-		$JWIakiHelper = new JWIakiHelper;
+            // Replace the entire path if needed
+            if ($sourceImageFolder && $destImageFolder) {
+                $getFirstImageSrc = str_replace($sourceImageFolder, $destImageFolder, $getFirstImage['src']);
+            } else {
+                $getFirstImageSrc = $getFirstImage['src'];
+            }
 
-		// Output
-		if (isset($item->id) && $item->id <= $limitK2ItemId)
-		{
+            if ($getFirstImageSrc && !(isset($item->imageXSmall) && $item->imageXSmall != '')) {
+                // Assign image path to K2 image object
+                $item->image = $item->imageXSmall = $item->imageSmall = $item->imageMedium = $item->imageLarge = $item->imageXLarge = $item->imageGeneric = $getFirstImageSrc;
 
-			if (isset($item->text) && JString::trim($item->text) != '')
-			{
-				$text = $item->text;
-			}
-			elseif (isset($item->introtext) && JString::trim($item->introtext) != '')
-			{
-				$text = $item->introtext;
-			}
-			else
-			{
-				$text = '';
-			}
+                // Strip the content from the actual <img /> tag
+                $item->text = str_replace($getFirstImage['tag'], '', $item->text);
+            }
+        }
+    }
 
-			$getFirstImage = $JWIakiHelper->getFirstImage($text);
+    // Grab the first image in a string
+    private function getFirstImage($string)
+    {
+        if (preg_match_all("#<img.+?>#s", $string, $matches, PREG_PATTERN_ORDER) > 0) {
+            $img = array();
 
-			// Replace the entire path if needed
-			if ($sourceImageFolder && $destImageFolder)
-			{
-				$getFirstImageSrc = str_replace($sourceImageFolder, $destImageFolder, $getFirstImage['src']);
-			}
-			else
-			{
-				$getFirstImageSrc = $getFirstImage['src'];
-			}
+            // Entire <img> tag
+            $img['tag'] = $matches[0][0];
 
-			if ($getFirstImageSrc && !(isset($item->imageXSmall) && $item->imageXSmall != ''))
-			{
-				// Assign image path to K2 image object
-				$item->image = $item->imageXSmall = $item->imageSmall = $item->imageMedium = $item->imageLarge = $item->imageXLarge = $item->imageGeneric = $getFirstImageSrc;
+            // Image src
+            if (preg_match("#src=\".+?\"#s", $img['tag'], $imgSrc)) {
+                $img['src'] = str_replace('src="', '', $imgSrc[0]);
+                $img['src'] = str_replace('"', '', $img['src']);
+            } else {
+                $img['src'] = false;
+            }
 
-				// Strip the content from the actual <img /> tag
-				$item->text = str_replace($getFirstImage['tag'], '', $item->text);
-			}
-		}
+            // Is this a real content image?
+            if (preg_match("#\.(jpg|jpeg|png|gif|bmp)#s", strtolower($img['src']), $imgExt)) {
+                $img['ext'] = true;
+            } else {
+                $img['ext'] = false;
+            }
 
-	}
-
-} // END CLASS
+            return $img;
+        }
+    }
+}

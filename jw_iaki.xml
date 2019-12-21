@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension version="2.5" type="plugin" group="k2" method="upgrade">
-	<name>IAKI - Import As K2 Image (by JoomlaWorks)</name>
-	<author>JoomlaWorks</author>
-	<creationDate>June 5th, 2014</creationDate>
-	<copyright>Copyright (c) 2006 - 2014 JoomlaWorks Ltd. All rights reserved.</copyright>
-	<authorEmail>please-use-the-contact-form@joomlaworks.net</authorEmail>
-	<authorUrl>www.joomlaworks.net</authorUrl>
-	<version>2.1</version>
-	<license>http://www.gnu.org/licenses/gpl.html GNU/GPL</license>
-	<description>JW_PLG_IAKI_DESC</description>
-	<files>
-		<filename plugin="jw_iaki">jw_iaki.php</filename>
-		<folder>jw_iaki</folder>
-	</files>
-	<config>
-		<fields name="params">
-			<fieldset name="basic">
-				<field name="limitK2ItemId" type="text" size="6" default="" label="JW_PLG_IAKI_LIMITK2ITEMID" description="" />
-				<field name="@spacer" type="spacer" class="text" label="JW_PLG_IAKI_OPTIONAL" />
-				<field name="sourceImageFolder" type="text" default="" label="JW_PLG_IAKI_SRCIMGFOLDER" description="" />
-				<field name="destImageFolder" type="text" default="" label="JW_PLG_IAKI_DESTIMGFOLDER" description="" />
-			</fieldset>
-		</fields>
-	</config>
-	<languages>
-		<language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.ini</language>
-		<language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.sys.ini</language>
-	</languages>
+    <name>IAKI - Import As K2 Image (by JoomlaWorks)</name>
+    <author>JoomlaWorks</author>
+    <creationDate>December 21st, 2019</creationDate>
+    <copyright>Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.</copyright>
+    <authorEmail>please-use-the-contact-form@joomlaworks.net</authorEmail>
+    <authorUrl>https://www.joomlaworks.net</authorUrl>
+    <version>2.2</version>
+    <license>GNU/GPL</license>
+    <description>JW_PLG_IAKI_DESC</description>
+    <files>
+        <filename plugin="jw_iaki">jw_iaki.php</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="limitK2ItemId" type="text" size="6" default="" label="JW_PLG_IAKI_LIMITK2ITEMID" description="" />
+                <field name="@spacer" type="spacer" class="text" label="JW_PLG_IAKI_OPTIONAL" />
+                <field name="sourceImageFolder" type="text" default="" label="JW_PLG_IAKI_SRCIMGFOLDER" description="" />
+                <field name="destImageFolder" type="text" default="" label="JW_PLG_IAKI_DESTIMGFOLDER" description="" />
+            </fieldset>
+        </fields>
+    </config>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_k2_jw_iaki.sys.ini</language>
+    </languages>
 </extension>
