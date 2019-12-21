@@ -16,11 +16,8 @@ Please note that this plugin will not dynamically resize your Joomla article ima
 If you want to provide feedback for this Joomla plugin, you may use the GitHub issue tracker here: https://github.com/joomlaworks/k2-iaki/issues
 
 
-### REQUIREMENTS
-IAKI is a K2 plugin for Joomla and the only basic requirements to use it are:
-
-- K2 v2.5.x or newer installed
-- Joomla 2.5 or 3.x installed
+### COMPATIBILITY
+IAKI is a K2 type plugin for Joomla versions 2.5 & 3.x, that is PHP 5 & PHP 7 compatible. We recommend using it with K2 v2.7.x or newer.
 
 
 ### LICENSE
