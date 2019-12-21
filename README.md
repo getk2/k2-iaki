@@ -30,3 +30,13 @@ You can grab the latest release here: https://www.joomlaworks.net/downloads/?f=p
 To install this Joomla plugin, download the file in your computer and then head over to the Joomla installer and choose to upload the file you just downloaded.
 
 An older release for Joomla 1.5 can be found here: https://www.joomlaworks.net/downloads/?f=plg_k2_iaki-v1.0_j1.5-2.5.zip
+
+
+### TO DO
+Features to come in future versions:
+
+- Support Joomla versions 1.5, 2.5 & 3.x (as K2 does)
+- Allow image resizing (with caching)
+- Add optional start/end item IDs to mark in which item ID range the plugin will trigger
+- Use optional placeholder image when no image is found in article body text
+- Offer as "content" type plugin as well so it can work on 3rd party modules
