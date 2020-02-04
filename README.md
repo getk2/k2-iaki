@@ -18,7 +18,7 @@ If you want to provide feedback for this Joomla plugin, you may use the GitHub i
 
 ### COMPATIBILITY
 
-IAKI is a K2 type plugin for Joomla versions 2.5 & 3.x, that is PHP 5 & PHP 7 compatible. We recommend using it with K2 v2.7.x or newer.
+IAKI is a K2 type plugin for Joomla versions 2.5 & 3.x, that is PHP 5 & PHP 7 compatible. We recommend using it with K2 v2.10.x or newer.
 
 
 ### LICENSE
@@ -28,9 +28,9 @@ IAKI is developed by JoomlaWorks and released under the GNU/GPL license.
 
 ### DOWNLOAD
 
-Download the latest version (v2.2 - released on December 21st, 2019):
+Download the latest version (v2.3 - released on February 4th, 2020):
 
-https://www.joomlaworks.net/downloads/?f=plg_k2_iaki-v2.2_j2.5-3.x.zip
+https://www.joomlaworks.net/downloads/?f=plg_k2_iaki-v2.3_j2.5-3.x.zip
 
 To install this Joomla plugin, download the file in your computer and then head over to the Joomla installer and choose to upload the file you just downloaded.
 

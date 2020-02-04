@@ -1,9 +1,9 @@
 <?php
 /**
- * @version     2.2
+ * @version     2.3
  * @package     IAKI - Import As K2 Image (K2 plugin)
  * @author      JoomlaWorks - https://www.joomlaworks.net
- * @copyright   Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright   Copyright (c) 2006 - 2020 JoomlaWorks Ltd. All rights reserved.
  * @license     GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
  */
 
@@ -54,18 +54,20 @@ class plgK2Jw_iaki extends K2Plugin
             $getFirstImage = $this->getFirstImage($text);
 
             // Replace the entire path if needed
-            if ($sourceImageFolder && $destImageFolder) {
-                $getFirstImageSrc = str_replace($sourceImageFolder, $destImageFolder, $getFirstImage['src']);
-            } else {
-                $getFirstImageSrc = $getFirstImage['src'];
-            }
+            if (!empty($getFirstImage)) {
+                if ($sourceImageFolder && $destImageFolder) {
+                    $getFirstImageSrc = str_replace($sourceImageFolder, $destImageFolder, $getFirstImage['src']);
+                } else {
+                    $getFirstImageSrc = $getFirstImage['src'];
+                }
 
-            if ($getFirstImageSrc && !(isset($item->imageXSmall) && $item->imageXSmall != '')) {
-                // Assign image path to K2 image object
-                $item->image = $item->imageXSmall = $item->imageSmall = $item->imageMedium = $item->imageLarge = $item->imageXLarge = $item->imageGeneric = $getFirstImageSrc;
+                if ($getFirstImageSrc && !(isset($item->imageXSmall) && $item->imageXSmall != '')) {
+                    // Assign image path to K2 image object
+                    $item->image = $item->imageXSmall = $item->imageSmall = $item->imageMedium = $item->imageLarge = $item->imageXLarge = $item->imageGeneric = $getFirstImageSrc;
 
-                // Strip the content from the actual <img /> tag
-                $item->text = str_replace($getFirstImage['tag'], '', $item->text);
+                    // Strip the content from the actual <img /> tag
+                    $item->text = str_replace($getFirstImage['tag'], '', $item->text);
+                }
             }
         }
     }
