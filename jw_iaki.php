@@ -1,9 +1,9 @@
 <?php
 /**
- * @version     2.3
+ * @version     2.4
  * @package     IAKI - Import As K2 Image (K2 plugin)
  * @author      JoomlaWorks - https://www.joomlaworks.net
- * @copyright   Copyright (c) 2006 - 2020 JoomlaWorks Ltd. All rights reserved.
+ * @copyright   Copyright (c) 2006 - 2021 JoomlaWorks Ltd. All rights reserved.
  * @license     GNU/GPL license: https://www.gnu.org/copyleft/gpl.html
  */
 
@@ -43,10 +43,12 @@ class plgK2Jw_iaki extends K2Plugin
 
         // Output
         if (isset($item->id)) {
-            if (isset($item->text) && trim($item->text) != '') {
+            if (!empty($item->text) && trim($item->text) != '') {
                 $text = $item->text;
-            } elseif (isset($item->introtext) && trim($item->introtext) != '') {
+            } elseif (!empty($item->introtext) && trim($item->introtext) != '') {
                 $text = $item->introtext;
+            } elseif (!empty($item->fulltext) && trim($item->fulltext) != '') {
+                $text = $item->fulltext;
             } else {
                 $text = '';
             }
